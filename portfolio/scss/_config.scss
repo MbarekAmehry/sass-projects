@@ -1,0 +1,41 @@
+//  colors
+$primary-color: #333;
+$secondary-color: #eece1a;
+$color-light: #fff;
+
+// fonts
+$font-stack: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+// spacing
+$line-height: 1.3;
+
+// transition
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+
+$show-home-image: true;
+$bg-image: url(../img/background.jpg);
+
+// bg image
+@mixin background {
+  // @if $show-home-image {
+  &#bg-img {
+    background: $bg-image;
+    background-size: cover;
+    background-attachment: fixed;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba($primary-color, 0.8);
+    }
+  }
+  // }
+}
+// ********************************
