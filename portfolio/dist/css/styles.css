@@ -1,3 +1,179 @@
+.menu-btn {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  z-index: 3;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.menu-btn .btn-line {
+  width: 28px;
+  height: 3px;
+  margin-bottom: 5px;
+  background: #fff;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.menu-btn.close {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.menu-btn.close .btn-line:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(5px, 5px);
+          transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-btn.close .btn-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.close .btn-line:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(7px, -6px);
+          transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.menu {
+  height: 100vh;
+  opacity: 0.9;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  visibility: hidden;
+}
+
+.menu.show {
+  visibility: visible;
+}
+
+.menu-branding {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #333;
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.menu-branding.show {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.menu-branding .portrait {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px solid #eece1a;
+  background: url(../img/profile.jpg) center center/cover;
+}
+
+.menu-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #292929;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.menu-nav.show {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.menu-nav .nav-item {
+  padding: 22px 0;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.menu-nav .nav-item a {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.menu-nav .nav-item a:hover {
+  color: #eece1a;
+}
+
+.menu-nav .nav-item:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.menu-nav .current {
+  color: #eece1a;
+}
+
+@media screen and (max-width: 768px) {
+  #home {
+    margin: 0 2rem;
+    text-align: center;
+  }
+  #home .lg-heading {
+    line-height: 1.1;
+  }
+  #home .sm-heading {
+    margin: 1rem 0 2rem;
+    padding: 0.2rem 1.9rem;
+  }
+  ul.menu-nav,
+  div.menu-branding {
+    width: 100%;
+    min-height: 0;
+  }
+  ul.menu-nav.show,
+  div.menu-branding.show {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  .menu {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .menu-branding {
+    height: 29vh;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+  }
+  .menu-branding .portrait {
+    height: 9.6rem;
+    width: 9.6rem;
+  }
+  .menu-nav {
+    height: 71vh;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -10,6 +186,7 @@ body {
   color: #fff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.3;
+  overflow: hidden;
 }
 
 body#bg-img {
@@ -33,21 +210,6 @@ header {
   position: fixed;
   width: 100%;
   z-index: 3;
-}
-
-.menu-btn {
-  position: relative;
-}
-
-.menu-btn .btn-line {
-  position: absolute;
-  content: "";
-  top: 15px;
-  right: 20px;
-  width: 20px;
-  height: 2px;
-  background-color: #fff;
-  margin: 5px 0;
 }
 
 h1,
@@ -101,13 +263,6 @@ main a {
 
 main a:hover {
   color: #eece1a;
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-
-@media (max-width: 750px) {
-  #home {
-    margin: 0 2rem;
-    text-align: center;
-  }
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }

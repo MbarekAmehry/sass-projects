@@ -10,8 +10,8 @@ $font-stack: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 $line-height: 1.3;
 
 // transition
-@mixin easeOut {
-  transition: all 0.5s ease-out;
+@mixin easeOut($delay) {
+  transition: all $delay ease-out;
 }
 
 $show-home-image: true;
@@ -37,5 +37,11 @@ $bg-image: url(../img/background.jpg);
     }
   }
   // }
+}
+
+@mixin menuFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 // ********************************

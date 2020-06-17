@@ -1,0 +1,55 @@
+// destop Xl
+@media screen and (min-width: 1171px) {
+}
+
+// large screen
+@media screen and (min-width: 769px) and(max-width:1170px) {
+}
+
+// tablet screen
+@media screen and(max-width:768px) {
+  #home {
+    margin: 0 2rem;
+    text-align: center;
+
+    .lg-heading {
+      line-height: 1.1;
+    }
+
+    .sm-heading {
+      margin: 1rem 0 2rem;
+      padding: 0.2rem 1.9rem;
+    }
+  }
+
+  ul.menu-nav,
+  div.menu-branding {
+    width: 100%;
+    min-height: 0;
+    &.show {
+      transform: translate3d(0, 0, 0);
+      // z-index: 1;
+    }
+  }
+  .menu {
+    // height: 100vh;
+    grid-template-columns: 1fr;
+
+    &-branding {
+      height: 29vh;
+      transform: translate3d(-100%, 0, 0);
+      .portrait {
+        height: 9.6rem;
+        width: 9.6rem;
+      }
+    }
+    &-nav {
+      height: 71vh;
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+}
+
+// smart phones
+@media screen and (max-width: 500px) {
+}

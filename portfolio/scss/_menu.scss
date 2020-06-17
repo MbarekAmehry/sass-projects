@@ -1,0 +1,62 @@
+.menu {
+  height: 100vh;
+  opacity: 0.9;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  visibility: hidden;
+  &.show {
+    visibility: visible;
+  }
+
+  &-branding {
+    @include menuFlex;
+    background-color: $primary-color;
+    transform: translate3d(0, 100%, 0);
+    @include easeOut(0.4s);
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .portrait {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 3px solid $secondary-color;
+      background: url(../img/profile.jpg) center center/cover;
+    }
+  }
+  &-nav {
+    @include menuFlex;
+    background: darken($primary-color, 4);
+
+    flex-direction: column;
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    @include easeOut(0.4s);
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .nav-item {
+      padding: 22px 0;
+      @include easeOut(0.3s);
+      a {
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: 300;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
+    .current {
+      color: $secondary-color;
+    }
+  }
+}

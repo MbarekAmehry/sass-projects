@@ -1,4 +1,7 @@
 @import "config";
+@import "buttons";
+@import "menu";
+@import "mobile";
 
 * {
   box-sizing: border-box;
@@ -12,6 +15,7 @@ body {
   color: $color-light;
   font-family: $font-stack;
   line-height: $line-height;
+  overflow: hidden;
 }
 
 // header
@@ -20,20 +24,6 @@ header {
   width: 100%;
   z-index: 3;
   // display: none;
-}
-
-.menu-btn {
-  position: relative;
-  .btn-line {
-    position: absolute;
-    content: "";
-    top: 15px;
-    right: 20px;
-    width: 20px;
-    height: 2px;
-    background-color: $color-light;
-    margin: 5px 0;
-  }
 }
 
 // Home
@@ -73,14 +63,7 @@ main {
     padding-right: 0.6rem;
     &:hover {
       color: $secondary-color;
-      @include easeOut();
+      @include easeOut(0.3s);
     }
-  }
-}
-
-@media (max-width: 750px) {
-  #home {
-    margin: 0 2rem;
-    text-align: center;
   }
 }
